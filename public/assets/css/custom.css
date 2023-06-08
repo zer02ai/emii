@@ -1,0 +1,7 @@
+.second-header::before {
+    background: #900010;
+}
+
+.header-three .second-header{
+    background: #d1d156;
+}

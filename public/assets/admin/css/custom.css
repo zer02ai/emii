@@ -1,0 +1,51 @@
+
+.page-item.active .page-link , .btn-primary , #back-to-top{
+    color: #000!important;
+    background-color: #FFC100!important;
+    border-color: #FFC100!important;
+}
+
+i , .app-sidebar__toggle , .country span{
+    color: #000!important;
+}
+
+.login-img::before {
+    background: #fff!important;
+    background-color: #fff!important;
+}
+.login-img {
+    background-image: none!important;
+}
+
+.login-img .header-brand-img {
+    width: 25%;
+}
+
+@media (min-width: 1221px){
+    .login-img .header-brand-img {
+        width: 18%;
+    }
+}
+
+@media (max-width: 991px){
+    .sidebar-mini .app-header .light-logo1 {
+        display: block !important;
+        height: auto;
+        width: 30%;
+    }
+
+    .login-img .header-brand-img {
+        width: 30%;
+    }
+}
+
+@media (max-width: 575px){
+    .sidebar-mini .app-header .light-logo1 {
+        display: block !important;
+        height: auto;
+        width: 45%;
+    }
+    .login-img .header-brand-img {
+        width: 50%;
+    }
+}
