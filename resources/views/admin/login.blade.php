@@ -67,23 +67,20 @@
                                 <div class="panel-body tabs-menu-body p-0 pt-5">
                                     <div class="tab-content">
                                         <div class="tab-pane active" id="tab5">
+                                            @error('email')
+                                            <div class="alert alert-danger">{{ $message }}</div>
+                                            @enderror
                                             <div class="wrap-input100 validate-input input-group" data-bs-validate="Valid email is required: ex@abc.xyz">
                                                 <a href="javascript:void(0)" class="input-group-text bg-white text-muted">
                                                     <i class="zmdi zmdi-email text-muted" aria-hidden="true"></i>
                                                 </a>
                                                 <input class="input100 border-start-0 form-control ms-0" name="email" type="email" placeholder="ex@abc.xyz">
-                                                @error('email')
-                                                    <div class="alert alert-danger">{{ $message }}</div>
-                                                @enderror
                                             </div>
                                             <div class="wrap-input100 validate-input input-group" id="Password-toggle">
                                                 <a href="javascript:void(0)" class="input-group-text bg-white text-muted">
                                                     <i class="zmdi zmdi-eye text-muted" aria-hidden="true"></i>
                                                 </a>
                                                 <input class="input100 border-start-0 form-control ms-0" name="password" type="password" placeholder="Password">
-                                                @error('password')
-                                                    <div class="alert alert-danger">{{ $message }}</div>
-                                                @enderror
                                             </div>
                                             <div class="text-end pt-4">
                                                 <p class="mb-0"><a href="#" class="text-primary ms-1">Forgot Password?</a></p>

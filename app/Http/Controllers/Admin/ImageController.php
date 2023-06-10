@@ -11,26 +11,29 @@ class ImageController extends Controller
 {
     public function index()
     {
+        $page_title = 'Gallery';
         $galleries = gallery::all();
-        return view('admin.gallery',compact(['galleries']));
+        return view('admin.gallery',compact(['galleries','page_title']));
     }
 
     public function add_update_gallery($id = null)
     {
+        $page_title = 'Add Images to Gallery';
         if (!is_null($id)) {
             $gallery = gallery::find($id);
-            return view('admin.add_gallery', ['gallery' => $gallery]);
+            return view('admin.add_gallery', compact(['page_title','gallery']));
         } else {
-            return view('admin.add_gallery');
+            return view('admin.add_gallery',compact(['page_title']));
         }
     }
 
-    public function save_gallery(Request $request)
+    public function save(Request $request)
     {
 
         $request->validate(
             [
                 'images' => 'required',
+                'type' => 'required'
             ]
         );
 
@@ -39,13 +42,14 @@ class ImageController extends Controller
         if ($request->hasFile('images')) {
             $i = $y = 1;
             foreach ($request->file('images') as $key => $file) {
-                $image = new gallery();
-                $filename = time().$i++. $file->getClientOriginalExtension();
-                $file->move('images/image_gallery/', $filename);
-                $image->image_path = 'images/image_gallery/'.$filename;
+                $imageData = new gallery();
+                $imageData->type = $data['type'];
+                $filename = time().$i++.'.'. $file->getClientOriginalExtension();
+                $file->move('images/galleries/', $filename);
+                $imageData->image = 'images/galleries/'.$filename;
 
                 // thumnail section
-                $image_path = public_path('images/image_gallery/');
+                $image_path = public_path('images/galleries/');
                 $image_file = $image_path . $filename;
 
                 if (!file_exists($image_path . 'thumbnail/')) {
@@ -58,8 +62,8 @@ class ImageController extends Controller
                 // resize image for tmp image
                 $imageResize = Image::make($image_file)->resize(300, 200);
                 $imageResize->save($image_path . 'thumbnail/' . $thumbnail_image_name);
-                $image->thumbnail_image_path = $image_path . 'thumbnail/'.$thumbnail_image_name;
-                $image->save();
+                $imageData->thumbnail_image = 'images/galleries/thumbnail/'.$thumbnail_image_name;
+                $imageData->save();
             }
 
             return redirect()->route('admin.gallery')->with('success', 'Image(s) saved successfully.');
@@ -68,31 +72,7 @@ class ImageController extends Controller
         }
     }
 
-    public function delete_image_gallery($id)
-    {
-        if (!is_null($id)) {
-            $image = gallery::find($id);
-            if ($image) {
-                if ($image->delete()) {
-                    $file = public_path('images/gallery/' . $image->name);
-                    $thumbnail_file = public_path('images/gallery/thumbnail/' . $image->thumbnail_image);
-                    if (file_exists($file)) {
-                        unlink($file);
-                    }
-                    if (file_exists($thumbnail_file)) {
-                        unlink($thumbnail_file);
-                    }
-                    return redirect()->route('backend.image_galleries')->with('success', 'Image deleted successfully.');
-                }
-            } else {
-                return redirect()->route('backend.image_galleries')->with('error', "Image doesn't exist.");
-            }
-        } else {
-            return redirect()->route('backend.image_galleries')->with('error', "Invalid id.");
-        }
-    }
-
-    public function status_image_gallery($id)
+    public function status($id)
     {
         if (!is_null($id)) {
             $image = gallery::find($id);
@@ -103,15 +83,39 @@ class ImageController extends Controller
                     $image->status = 0;
                 }
                 if ($image->save()) {
-                    return redirect()->route('backend.image_galleries')->with('success', 'Image gallery status changed');
+                    return redirect()->route('admin.gallery')->with('success', 'Image gallery status changed');
                 } else {
-                    return redirect()->route('backend.image_galleries')->with('error', 'Failed!');
+                    return redirect()->route('admin.gallery')->with('error', 'Failed!');
                 }
             } else {
-                return redirect()->route('backend.image_galleries')->with('error', "Image doesn't exist.");
+                return redirect()->route('admin.gallery')->with('error', "Image doesn't exist.");
             }
         } else {
-            return redirect()->route('backend.image_galleries')->with('error', "Invalid id.");
+            return redirect()->route('admin.gallery')->with('error', "Invalid id.");
+        }
+    }
+
+    public function delete($id)
+    {
+        if (!is_null($id)) {
+            $imageData = gallery::find($id);
+            if ($imageData) {
+                if ($imageData->delete()) {
+                    $file = public_path($imageData->image);
+                    $thumbnail_file = public_path($imageData->thumbnail_image);
+                    if (file_exists($file)) {
+                        unlink($file);
+                    }
+                    if (file_exists($thumbnail_file)) {
+                        unlink($thumbnail_file);
+                    }
+                    return redirect()->route('admin.gallery')->with('success', 'Image deleted successfully.');
+                }
+            } else {
+                return redirect()->route('admin.gallery')->with('error', "Image doesn't exist.");
+            }
+        } else {
+            return redirect()->route('admin.gallery')->with('error', "Invalid id.");
         }
     }
 

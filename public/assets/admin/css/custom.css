@@ -21,6 +21,10 @@ i , .app-sidebar__toggle , .country span{
     width: 25%;
 }
 
+.form-group label{
+    font-weight: 500!important;
+}
+
 @media (min-width: 1221px){
     .login-img .header-brand-img {
         width: 18%;

@@ -31,16 +31,11 @@
                             @foreach($galleries as $gallery)
                             <tr>
                                 <td><input type="checkbox" name="gallery[]" class="gallery" value="{{$gallery->id}}"/></td>
-                                <td><span class="avatar bradius" style="background-image: url({{$gallery->thumbnail_image_path}})"></span></td>
+                                <td><span class="avatar bradius" style="background-image: url({{url('')}}/{{$gallery->thumbnail_image}})"></span></td>
                                 <td>{{ucfirst($gallery->type)}}</td>
-                                @if($gallery->status == 1)
-                                <td>Active</td>
-                                @else
-                                <td>Inactive</td>
-                                @endif
+                                <td>{{($gallery->status == 1)?'Active':'Inactive'}}</td>
                                 <td>
                                     <div class="g-2">
-                                        <a class="btn text-primary btn-sm" href="{{route('admin.add_gallery',['id' => $gallery->id])}}" data-bs-toggle="tooltip" data-bs-original-title="Edit"><span class="fe fe-edit fs-14"></span></a>
                                         <a class="btn text-primary btn-sm" href="{{route('admin.status_gallery',['id' => $gallery->id])}}" data-bs-toggle="tooltip" data-bs-original-title="Status"><span class="bi bi-toggles fs-14"></span></a>
                                         <a class="btn text-danger btn-sm" href="{{route('admin.delete_gallery',['id' => $gallery->id])}}" data-bs-toggle="tooltip" data-bs-original-title="Delete"><span class="fe fe-trash-2 fs-14"></span></a>
                                     </div>
@@ -66,7 +61,7 @@
         $('.gallery:checked').each(function () {
             gallery_ids[i++] = $(this).val();
         });
-        // console.log(gallery_ids);  
+    
         $.ajaxSetup({
                     headers: {
                         'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')

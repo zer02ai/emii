@@ -33,7 +33,18 @@
                     <a class="side-menu__item" href="{{route('admin.gallery')}}"><i class="side-menu__icon fe fe-home"></i><span class="side-menu__label">Galleries</span></a>
                 </li>
                 <li class="slide">
-                    <a class="side-menu__item" href="{{route('admin.course')}}"><i class="side-menu__icon fe fe-home"></i><span class="side-menu__label">Courses</span></a>
+                    <a class="side-menu__item" data-bs-toggle="slide" href="javascript:void(0)"><i
+                            class="side-menu__icon fe fe-slack"></i><span
+                            class="side-menu__label">Courses</span><i
+                            class="angle fe fe-chevron-right"></i></a>
+                    <ul class="slide-menu">
+                        <li class="side-menu-label1"><a href="javascript:void(0)">Courses</a></li>
+                        <li><a href="{{route('admin.course',['type'=>'main'])}}" class="slide-item">Main Courses</a></li>
+                        <li><a href="{{route('admin.course',['type'=> 'sub'])}}" class="slide-item">Sub Courses</a></li>
+                    </ul>
+                </li> 
+                <li class="slide">
+                    <a class="side-menu__item" href="{{route('admin.infos')}}"><i class="side-menu__icon fe fe-home"></i><span class="side-menu__label">Website Info</span></a>
                 </li>
             </ul>
             <div class="slide-right" id="slide-right"><svg xmlns="http://www.w3.org/2000/svg" fill="#7b8191" width="24" height="24" viewBox="0 0 24 24">

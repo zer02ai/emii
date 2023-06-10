@@ -16,11 +16,25 @@ Route::namespace('App\Http\Controllers\Admin')->prefix('admin')->as('admin.')->g
 
         // gallery route
         Route::get('/galleries','ImageController@index')->name('gallery');
-        Route::get('/add-gallery','ImageController@add_update_gallery')->name('add_gallery');
-        Route::post('/bulk-delete-gallery-images','ImageController@bulk_delete_gallery')->name('bulk_delete_gallery');
+        Route::get('/add-gallery/{id?}','ImageController@add_update_gallery')->name('add_gallery');
+        Route::post('/add-gallery/{id?}','ImageController@save')->name('save_gallery');
+        Route::get('/change-status-gallery/{id}','ImageController@status')->name('status_gallery');
+        Route::get('/delete-gallery/{id}','ImageController@delete')->name('delete_gallery');
+        Route::post('/bulk-delete-gallery-images','ImageController@bulk_delete')->name('bulk_delete_gallery');
 
         // course route 
-        Route::get('/courses','CourseController@index')->name('course');
+        Route::get('/courses/{type}','CourseController@index')->name('course');
+        Route::get('/add-course/{type}/{id?}','CourseController@add_update_course')->name('add_course');
+        Route::post('/save-course/{type}/{id?}','CourseController@save_course')->name('save_course');
+        Route::get('/change-status-course/{type}/{id}','CourseController@status')->name('status_course');
+        Route::get('/delete-courses/{type}/{id}','CourseController@delete')->name('delete_course');
+
+        // WebInfo route
+        Route::get('/infos','InfoController@index')->name('infos');
+        Route::get('/add-info/{id?}','InfoController@add_update_info')->name('add_info');
+        Route::post('/add-info/{id?}','InfoController@save')->name('save_info');
+        Route::get('/change-status-info/{id}','InfoController@status')->name('status_info');
+        Route::get('/delete-info/{id}','InfoController@delete')->name('delete_info');
 
     });
 

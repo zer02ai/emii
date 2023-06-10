@@ -16,6 +16,15 @@ $(function(e) {
             searchPlaceholder: 'Search...',
             scrollX: "100%",
             sSearch: '',
+            buttons: [ 'colvis' ]
+        }
+    });
+    $('.responsive-datatable').DataTable({
+        language: {
+            searchPlaceholder: 'Search...',
+            scrollX: "100%",
+            sSearch: '',
+            buttons: [ 'colvis' ]
         }
     });
 
@@ -28,8 +37,8 @@ $(function(e) {
             sSearch: '',
         }
     });
-    table.buttons().container()
-        .appendTo('#file-datatable_wrapper .col-md-6:eq(0)');
+    // table.buttons().container()
+    //     .appendTo('#file-datatable_wrapper .col-md-6:eq(0)');
 
     //______Delete Data Table
     var table = $('#delete-datatable').DataTable({

@@ -62,10 +62,10 @@
             </div>
             <div class="footer-link">
               <ul>
-                <li><a href="index-2.html">Home</a></li>
-                <li><a href="about.html"> About</a></li>
+                <li><a href="{{route('home')}}">Home</a></li>
+                <li><a href="{{route('about_us')}}"> About</a></li>
                 <li><a href="courses.html">Courses</a></li>
-                <li><a href="contact.html"> Contact Us</a></li>
+                <li><a href="{{route('contact_us')}}"> Contact Us</a></li>
                 <li><a href="blog.html">Blog </a></li>
               </ul>
             </div>
@@ -143,7 +143,7 @@
 
         </div>
         <div class="col-lg-4 text-right text-xl-right">
-          Copyright &copy; Qeducato 2023 . All rights reserved.
+          Copyright &copy; EMII 2023 . All rights reserved.
         </div>
       </div>
     </div>
@@ -172,7 +172,4 @@
 <script src="{{url('')}}/assets/js/element-in-view.js"></script>
 <script src="{{url('')}}/assets/js/main.js"></script>
 </body>
-
-<!-- Mirrored from htmldemo.zcubethemes.com/qeducato/ by HTTrack Website Copier/3.x [XR&CO'2014], Mon, 05 Jun 2023 15:11:56 GMT -->
-
 </html>

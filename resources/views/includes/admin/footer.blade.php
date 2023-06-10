@@ -3,7 +3,7 @@
             <div class="container">
                 <div class="row align-items-center flex-row-reverse">
                     <div class="col-md-12 col-sm-12 text-center">
-                        Copyright © 2022 <a href="javascript:void(0)"> 1008 Guru </a> Designed </span> by <a href="javascript:void(0)"> Hariwebinfotech </a> All rights reserved.
+                        Copyright © 2023 <a href="javascript:void(0)"> A </a> B </span> by <a href="javascript:void(0)">  </a> All rights reserved.
                     </div>
                 </div>
             </div>
@@ -12,23 +12,7 @@
 
     </div>
 
-    <!---- logout popup ---->
-    <div class="modal fade" id="logout-modal" style="padding: 10%">
-        <div class="modal-dialog" role="document">
-            <div class="modal-content modal-content-demo">
-                <div class="modal-header">
-                    <h6 class="modal-title">Login Seesion Expired</h6><button aria-label="Close" class="btn-close" data-bs-dismiss="modal"><span aria-hidden="true">&times;</span></button>
-                </div>
-                <div class="modal-body">
-                    <div class="form-group">
-                      <p id="logout-text-1">You had been assigned new authority. Please re-login to futher access to the site OR <br/></p>
-                      <p id="logout-text-2">You will be auto logout after <span style="font-weight:800" id="timer">10</span> seconds</p>
-                </div>
-            </div>
-        </div>
-    </div>
-
-    {{-- <script>
+    <script>
         $(document).ready(function() {
           $('.select2').select2(); 
           var active_url = $(location).attr("href");
@@ -38,12 +22,9 @@
               }
           });
     });
-    </script> --}}
+    </script>
     <!-- BACK-TO-TOP -->
     <a href="#top" id="back-to-top"><i class="fa fa-angle-up"></i></a>
-
-    <!-- JQUERY JS -->
-    <script src="{{  url('') }}/assets/jquery.min.js"></script>
 
     <!-- BOOTSTRAP JS -->
     <script src="{{  url('') }}/assets/admin/plugins/bootstrap/js/popper.min.js"></script>
@@ -59,8 +40,8 @@
     <script src="{{  url('') }}/assets/admin/js/circle-progress.min.js"></script>
 
     <!-- PIETY CHART JS-->
-    {{-- <script src="{{  url('') }}/assets/admin/plugins/peitychart/jquery.peity.min.js"></script>
-    <script src="{{  url('') }}/assets/admin/plugins/peitychart/peitychart.init.js"></script> --}}
+    <script src="{{  url('') }}/assets/admin/plugins/peitychart/jquery.peity.min.js"></script>
+    <script src="{{  url('') }}/assets/admin/plugins/peitychart/peitychart.init.js"></script>
 
     <!-- SIDEBAR JS -->
     <script src="{{  url('') }}/assets/admin/plugins/sidebar/sidebar.js"></script>
@@ -68,7 +49,7 @@
     <!-- Perfect SCROLLBAR JS-->
     <script src="{{  url('') }}/assets/admin/plugins/p-scroll/perfect-scrollbar.js"></script>
     <script src="{{  url('') }}/assets/admin/plugins/p-scroll/pscroll.js"></script>
-    <script src="{{  url('') }}/assets/admin/plugins/p-scroll/pscroll-1.js"></script>
+    {{-- <script src="{{  url('') }}/assets/admin/plugins/p-scroll/pscroll-1.js"></script> --}}
 
     <!-- INTERNAL CHARTJS CHART JS-->
     <script src="{{  url('') }}/assets/admin/plugins/chart/Chart.bundle.js"></script>

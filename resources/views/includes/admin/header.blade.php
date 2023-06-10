@@ -11,7 +11,7 @@
     <link rel="shortcut icon" type="image/x-icon" href="{{  url('') }}/assets/admin/images/brand/favicon.ico" />
 
     <!-- TITLE -->
-    <title>{{$page_title}} - EMII</title>
+    <title>EMII - {{$page_title}}</title>
 
     <!-- BOOTSTRAP CSS -->
     <link id="style" href="{{  url('') }}/assets/admin/plugins/bootstrap/css/bootstrap.min.css" rel="stylesheet" />
@@ -29,8 +29,9 @@
     <link id="theme" rel="stylesheet" type="text/css" media="all" href="{{  url('') }}/assets/admin/colors/color1.css" />
 
     {{-- custom.css --}}
-    <link href="{{url('')}}/assets/admin/css/custom.css" rel="stylesheet" />
-    {{-- <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script> --}}
+    <link href="{{url('')}}/assets/admin/css/custom.css" rel="stylesheet" />    
+    <!-- JQUERY JS -->
+    <script src="{{  url('') }}/assets/jquery.min.js"></script>
     <script>
         var base_url = "{{ url('') }}/admin";
     </script>

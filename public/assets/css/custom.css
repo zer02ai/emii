@@ -1,7 +1,13 @@
-.second-header::before {
+.second-header::before,.copyright-wrap{
     background: #900010;
 }
 
 .header-three .second-header{
-    background: #d1d156;
+    background: #181f98;
 }
+
+.second-header-btn .btn ,.btn{
+    background: #900010;
+    border: 1px solid #900010;
+}
+
